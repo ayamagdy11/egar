@@ -1,0 +1,300 @@
+/** Esam Ahmed Eisa - 01098950608 **/
+@font-face {
+  font-family: "JF-Flat-regular";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/JF-Flat-regular.ttf");
+}
+@font-face {
+  font-family: "DroidNaskh-Bold";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/DroidNaskh-Bold.ttf");
+}
+@font-face {
+  font-family: "DroidNaskh-Regular";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/DroidNaskh-Regular.ttf");
+}
+@font-face {
+  font-family: "DroidKufi-Regular";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/DroidKufi-Regular.ttf");
+}
+@font-face {
+  font-family: "segoeui";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/segoeui.ttf");
+}
+@font-face {
+  font-family: "OpenSans-Regular";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/open-sans/OpenSans-Regular.ttf");
+}
+@font-face {
+  font-family: "OpenSans-Bold";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/open-sans/OpenSans-Bold.ttf");
+}
+@font-face {
+  font-family: "Montserrat-Regular";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/montserrat/Montserrat-Regular.otf");
+}
+body {
+  background-color: #f4f4f4;
+  background: url('../images/22222.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  font-family: "OpenSans-Regular";
+  color: #212121;
+  font-size: 14px;
+}
+
+a {text-decoration: none;outline: none;}
+a:active{outline:none;}
+a:hover, a:focus {text-decoration: none;}
+li {list-style: none outside none;}
+.bg1 {background-color: #1976D2}
+.bg2 {background-color: #2196F3}
+.bg3 {background-color: #BBDEFB}
+.color1 {color: #1976D2}
+.color2 {color: #2196F3}
+.color3 {color: #BBDEFB}
+hr {border-top: 1px solid #CCCCCD;}
+
+
+
+
+
+
+
+.bg-static {
+  background: #eee;
+  padding: 15px;
+}
+.margin-15 {
+  margin-top: 15px;
+}
+.padd-8 {
+  padding: 8px;
+}
+.panel-form {
+  background-color: #EDEFF4;
+  border-color: #ebebeb;
+}
+.panel-heading {
+  padding: 10px 15px;
+  background-color: #EDEFF4;
+  border-bottom: 1px solid #d6dbe7;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+}
+
+
+
+/** start navbar **/
+.navbar {
+  background: #fff;
+  border: 0px solid #fff;
+  border-bottom: 1px solid #ccc;
+  border-radius: 0px;
+}
+.navbar-form .form-control {
+  height: 40px;
+  background-color: #fff;
+  border: 1px solid #8BC34A;
+  border-radius: 0px;
+  padding: 5px 15px;
+  position: relative;
+  width: 260px;
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.075) inset, 0px 0px 0px rgba(102, 175, 233, 0.6);
+}
+.navbar-form .form-group {
+  margin-bottom: 10px;
+}
+.navbar-form .btn {
+  background: #8BC34A;
+  border: 1px solid #8BC34A;
+  color: #fff;
+  outline: none;
+  border-radius: 0px;
+  padding: 7px 25px;
+}
+.navbar-default .navbar-nav > li > a {
+  color: #333;
+}
+.dropdown-menu {
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0,0,0,.15);
+  border-radius: 0px;
+  -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.0);
+  box-shadow: 0 6px 12px rgba(0,0,0,.0);
+}
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:focus, .navbar-default .navbar-nav > .open > a:hover {
+  color: #fff;
+  background-color: #8BC34A;
+}
+/** end navbar **/
+
+
+
+/** start modal **/
+.modal-content {
+  -webkit-box-shadow: 0 5px 15px rgba(0,0,0,.5);
+  box-shadow: 0 5px 15px rgba(0,0,0,.5);
+  border-radius: 0px;
+}
+.modal .form-control {
+  height: 40px;
+  background-color: #fff;
+  border: 1px solid #8BC34A;
+  border-radius: 0px;
+  padding: 5px 15px;
+  position: relative;
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.075) inset, 0px 0px 0px rgba(102, 175, 233, 0.6);
+}
+.modal .form-group {
+  margin-bottom: 10px;
+}
+.modal .btn {
+  background: #8BC34A;
+  border: 1px solid #8BC34A;
+  color: #fff;
+  outline: none;
+  border-radius: 0px;
+  padding: 7px 25px;
+}
+.modal-footer {
+  text-align: center;
+}
+.forget-pass {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+/** end modal **/
+
+
+
+
+
+
+.well {
+  overflow: hidden;
+  margin-bottom: 0px;
+}
+.search-page .see-more .form-group {
+  position: relative;
+  margin: 0px;
+}
+.search-page .see-more .form-group input.datepicker-here {
+  padding-left: 40px;
+}
+.search-page .see-more .form-group i {
+  position: absolute;
+  font-size: 18px;
+  top: 50%;
+  margin-top: -9px;
+  width: 40px;
+  text-align: center;
+  color: #73879c;
+}
+.filters-search {
+  padding: 15px 0px;
+  display: block;
+}
+.more-filters {
+  padding: 7px 0px;
+  display: block;
+}
+.search-results .table > tbody > tr > td {
+  padding: 0px;
+}
+.search-results .table > tbody > tr.first-tr > td {
+  padding: 8px;
+}
+.search-results .table > tbody > tr > td a {
+  color: #333;
+}
+.search-results img {
+  height: 20px;
+}
+.table > tbody > tr > td.disable {
+  background: #888;
+}
+.search-results .table > tbody > tr > td.disable a {
+  color: #111;
+}
+.table-hover > tbody > tr.active:hover > td,
+.table-hover > tbody > tr.active:hover > th,
+.table-hover > tbody > tr:hover > .active,
+.table-hover > tbody > tr > td.active:hover,
+.table-hover > tbody > tr > th.active:hover {
+    background-color: #e8e8e8;
+}
+.table-hover > tbody > tr.disable:hover > td,
+.table-hover > tbody > tr.disable:hover > th,
+.table-hover > tbody > tr:hover > .disable,
+.table-hover > tbody > tr > td.disable:hover,
+.table-hover > tbody > tr > th.disable:hover {
+    background-color: #e8e8e8;
+}
+.search-results .pagination {
+  margin: 0px;
+}
+.search-results table {
+  margin: 5px 0px 8px 0px;
+}
+.search-results .navigation-arrange-detailes-gallary {
+  background: #eee;
+  overflow: hidden;
+  padding: 15px;
+}
+
+
+
+
+
+
+
+
+
+
+/** start - shm **/
+#shm {
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  background-color: #1976D2;
+  cursor: pointer;
+  display: none;
+  border-radius: 50%;
+  z-index: 100;
+  -webkit-transition: .4s;
+  -o-transition: .4s;
+  transition: .4s;
+}
+#shm:hover {
+  background-color: #212121;
+  -webkit-transition: .4s;
+  -o-transition: .4s;
+  transition: .4s;
+}
+#shm .fa-arrow-up {
+  font-size: 24px;
+  padding-top: 7px;
+}
+/** End - shm **/
+
