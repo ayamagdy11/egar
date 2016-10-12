@@ -143,6 +143,9 @@ hr {border-top: 1px solid #CCCCCD;}
   color: #fff;
   background-color: #8BC34A;
 }
+.navbar-nav > li > a {
+  padding: 22px 15px;
+}
 /** end navbar **/
 
 
@@ -186,7 +189,7 @@ hr {border-top: 1px solid #CCCCCD;}
 
 
 
-
+/** start search-page **/
 .well {
   overflow: hidden;
   margin-bottom: 0px;
@@ -258,7 +261,7 @@ hr {border-top: 1px solid #CCCCCD;}
   overflow: hidden;
   padding: 15px;
 }
-
+/** end search-page **/
 
 
 
