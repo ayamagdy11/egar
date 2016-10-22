@@ -26,7 +26,7 @@
 <body>
 	
 	
-	     <?php $this->load->view('en/nav')?>
+           <?php $this->load->view('en/nav2')?>
 
 	
 	
@@ -36,7 +36,7 @@
 				<div class="row">
 					<div class="col-sm-6 col-sm-offset-3">
 						<div class="bg-static">
-							<form action="<?php echo $this->config->base_url();?>build/next_page" method="POST">
+							<form action="<?php echo $this->config->base_url();?>egar/request2" method="POST">
 							<div class="form-group">
 								<input type="text" class="form-control" placeholder="-= Enter City =-" name="city">
 							</div>
@@ -83,7 +83,8 @@
 	<!--  <option value="option3">option3</option>-->
 	<!--  <option value="option4">option4</option>-->
 	<!--</select>-->
-	
+		 <?php $this->load->view('en/login_register')?>
+
 	
     <!-- start - shm -->
     <section id="shm">
@@ -106,3 +107,65 @@
 </body>
 </html>
 
+<script type="text/javascript">
+function SubmitForm(FormID, Controller, FunctionName) {
+            // alert("sd");
+               $("#"+FormID).unbind('submit').submit(function (event) {
+                   
+                   var formData = $( this ).serialize();
+                   $.ajax({
+                            type: 'POST', 
+                            url: "<?php echo $this->config->base_url(); ?>" + Controller + "/"+ FunctionName,
+                            data: formData
+                        })
+                        .done(function (data) {
+                            // $("#result").html(data);
+                            if(data=="error"){
+                        $('<div class="success-order">invalid email or password </div>').insertBefore('#submitbtn').delay(10000).fadeOut();
+                       // $("#result").html("invalid email or password ");
+                       // alert(data);
+                       } else
+                       {
+                       	$('<div class="success-order">success </div>').insertBefore('#submitbtn').delay(10000).fadeOut();
+                        $("#login_modal").modal('toggle');
+                        location.reload();
+                       }  
+                   });
+
+                        event.preventDefault();
+                        
+                        $("#"+FormID)[0].reset();
+                        // $("#x").modal('toggle');
+                    });
+                
+            }
+    function SubmitFormregister(FormID, Controller, FunctionName) {
+    	//if($("#password").val()== $("#repassword").val()){
+               $("#"+FormID).unbind('submit').submit(function (event) {
+                   
+                   var formData = $( this ).serialize();
+                   $.ajax({
+                            type: 'POST', 
+                            url: "<?php echo $this->config->base_url(); ?>" + Controller + "/"+ FunctionName,
+                            data: formData
+                        })
+                        .done(function (data) {
+                            // $("#result").html(data);
+                       if(data!="you are successfully registered"){
+                       $("#result").html(data);
+                       // alert(data);
+                       } else
+                       {
+                       	   $("#"+FormID)[0].reset();
+                           $("#registermodal").modal('toggle');  
+                           $("#result").val()="";
+
+                     }  
+                   });
+                        event.preventDefault();
+                        location.reload();
+                        // $("#x").modal('toggle');
+                    });
+                
+            }
+</script>

@@ -36,7 +36,116 @@ function __construct()
        $this->db->insert('offer',$param);
 
     }
+    public function check_email($email){
+        $query = $this->db->query("SELECT * FROM user where email='$email'");
+        return $query->result();
+    }
+    public function register($param)
+      {
+         $this->db->insert('user',$param);
+      }
+   public function search_request1($city,$category,$limit, $start)  {
+    $this->db->limit($limit, $start);
 
+
+// $where = "(city='$city' AND category='$category' AND delete_post=0)";
+// $this->db->where($where);
+
+$array = array('city' => $city, 'category' => $category, 'delete_post' => 0);
+
+$this->db->where($array); 
+    // $this->db->where('city',$city);
+    // $this->db->where('category',$category);
+    // $this->db->where('delete_post',0);
+    $query=$this->db->get('offer');
+    // print_r($query);exit();
+    $data= array();
+        if ($query->num_rows() > 0) {
+                foreach ($query->result() as $row) {
+                    $data[] = $row;
+                }
+                return $data;
+            }
+            return $data;
+  
+
+   }
+public function all_result_count($city,$category){
+$query = $this->db->where('city', $city)->where('delete_post',0)->where('category',$category)->get('offer');
+return $query->num_rows();
+}
+public function search_request2($sql){
+  // var_dump($sql);exit();
+//$this->db->limit($start, $limit);
+$query = $this->db->query($sql);
+// $query= $query->result();
+  $data= array();
+        if ($query->num_rows() > 0) {
+                foreach ($query->result() as $row) {
+                    $data[] = $row;
+                }
+              // var_dump($data);exit();
+                return $data;
+            }
+            return $data;
+
+
+}
+public function city_search(){
+ $query = $this->db->query("SELECT * FROM city ORDER by name");
+ return $query->result();
+}
+public function offer_details($id){
+    // $this->db->where('id',$id);
+    // $query=$this->db->get('offer');
+    //  $data= array();
+    //     if ($query->num_rows() > 0) {
+    //             foreach ($query->result() as $row) {
+    //                 $data[] = $row;
+    //             }
+    //             return $data;
+    //         }
+    //         return $data;
+
+  $query = $this->db->query("SELECT o.*,u.`first_name`,u.`last_name` FROM offer as o,user as u where o.`id`=$id and o.`user_id`=u.`id`");
+  return $query->result();
+}
+public function all_result_count2($sql_count){
+  $query = $this->db->query("$sql_count");
+  return $query->result();
+}
+public function user_offer($id){
+   $query = $this->db->query("SELECT * FROM offer where user_id='$id' and delete_post=0");
+   return $query->result();
+}
+public function user_request($id){
+   $query = $this->db->query("SELECT * FROM request where user_id='$id' and delete_post=0");
+   return $query->result();
+}
+public function deactive_request($id,$param){
+    $this->db->where('id',$id );
+    $this->db->update('request', $param);
+}
+public function active_request($id,$param){
+    $this->db->where('id',$id );
+    $this->db->update('request', $param);
+}
+public function deactive_offer($id,$param){
+    $this->db->where('id',$id );
+    $this->db->update('offer', $param);
+}
+public function active_offer($id,$param){
+    $this->db->where('id',$id );
+    $this->db->update('offer', $param);
+}
+public function delete_offer($id,$param){
+    $this->db->where('id',$id );
+    $this->db->update('offer', $param);
+}
+public function delete_request($id,$param){
+    $this->db->where('id',$id );
+    $this->db->update('request', $param);
+}
 }
 
 ?>

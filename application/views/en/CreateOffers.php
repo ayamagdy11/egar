@@ -26,7 +26,7 @@
 <body>
 	
 	
-	     <?php $this->load->view('en/nav')?>
+			     <?php $this->load->view('en/nav2')?>
 
 	
 	
@@ -35,7 +35,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-12">
-						<form class="margin-15" action="<?php echo $this->config->base_url();?>build/add_offer" method="POST">
+						<form class="margin-15" action="<?php echo $this->config->base_url();?>egar/add_offer" method="POST"  enctype="multipart/form-data">
 							
 							<div class="panel panel-form">
 								<div class="panel-heading">
@@ -44,7 +44,7 @@
 								<div class="panel-body">
 								<div class="row">
 										<div class="form-group col-sm-12">
-											<input class="form-control" name="city" type="hidden" value="<?php print_r($city);?>">
+											<input class="form-control" name="city_offer" type="hidden" value="<?php print_r($city);?>">
 										</div>
 									</div>
 
@@ -63,7 +63,12 @@
 											<label class="control-label">City</label>
 											<p><?php print_r($city);?></p>
 										</div>
-										
+									<div class="row">
+										<div class="form-group col-sm-12">
+											<input  name="img" type="file">
+										</div>
+
+									</div>
 										<div class="form-group col-sm-4">
 											<label class="control-label">Street  & House Number</label>
 											<input class="form-control" placeholder="Street  & House Number" type="text">
@@ -1562,7 +1567,8 @@
 	<!--  <option value="option3">option3</option>-->
 	<!--  <option value="option4">option4</option>-->
 	<!--</select>-->
-	
+		 <?php $this->load->view('en/login_register')?>
+
 	
     <!-- start - shm -->
     <div id="shm">
@@ -1585,3 +1591,65 @@
 </body>
 </html>
 
+<script type="text/javascript">
+function SubmitForm(FormID, Controller, FunctionName) {
+            // alert("sd");
+               $("#"+FormID).unbind('submit').submit(function (event) {
+                   
+                   var formData = $( this ).serialize();
+                   $.ajax({
+                            type: 'POST', 
+                            url: "<?php echo $this->config->base_url(); ?>" + Controller + "/"+ FunctionName,
+                            data: formData
+                        })
+                        .done(function (data) {
+                            // $("#result").html(data);
+                            if(data=="error"){
+                        $('<div class="success-order">invalid email or password </div>').insertBefore('#submitbtn').delay(10000).fadeOut();
+                       // $("#result").html("invalid email or password ");
+                       // alert(data);
+                       } else
+                       {
+                       	$('<div class="success-order">success </div>').insertBefore('#submitbtn').delay(10000).fadeOut();
+                        $("#login_modal").modal('toggle');
+                        location.reload();
+                       }  
+                   });
+
+                        event.preventDefault();
+                        
+                        $("#"+FormID)[0].reset();
+                        // $("#x").modal('toggle');
+                    });
+                
+            }
+    function SubmitFormregister(FormID, Controller, FunctionName) {
+    	//if($("#password").val()== $("#repassword").val()){
+               $("#"+FormID).unbind('submit').submit(function (event) {
+                   
+                   var formData = $( this ).serialize();
+                   $.ajax({
+                            type: 'POST', 
+                            url: "<?php echo $this->config->base_url(); ?>" + Controller + "/"+ FunctionName,
+                            data: formData
+                        })
+                        .done(function (data) {
+                            // $("#result").html(data);
+                       if(data!="you are successfully registered"){
+                       $("#result").html(data);
+                       // alert(data);
+                       } else
+                       {
+                       	   $("#"+FormID)[0].reset();
+                           $("#registermodal").modal('toggle');  
+                           $("#result").val()="";
+
+                     }  
+                   });
+                        event.preventDefault();
+                        location.reload();
+                        // $("#x").modal('toggle');
+                    });
+                
+            }
+</script>

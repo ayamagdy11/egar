@@ -1,5 +1,5 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-$config['base_url'] = 'http://localhost/build/';
+$config['base_url'] = 'http://localhost/esam/egar/develop/';
 $config['index_page'] = 'index.php';
 
 /*
@@ -101,6 +101,7 @@ $config['subclass_prefix'] = 'MY_';
 |
 */
 $config['permitted_uri_chars'] = 'a-z 0-9~%.:_\-\=';
+
 /*
 |--------------------------------------------------------------------------
 | Enable Query Strings

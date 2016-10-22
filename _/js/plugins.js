@@ -24,21 +24,31 @@ $(document).ready(function(){
         lazyLoad : true
     });
     $(".owl-example-5").owlCarousel({
-        autoPlay: 4000,
+        autoPlay: 5000,
         items : 3,
         stopOnHover : true,
         lazyLoad : true
     });
     
     
-
+    $('.hide-more-category').hide();
+    $('#Category').change(function () {
+      $('.hide-more-category').hide();
+      $('.'+$(this).val()).show();
+    });
     
-    //$('.group').hide();
-    //$('#option1').show();
-    //$('#selectMe').change(function () {
-    //  $('.group').hide();
-    //  $('.'+$(this).val()).show();
-    //});
+    $('.hide-more').hide();
+    $('.show-hide-more').show();
+    $('#RentTypeSelect').change(function () {
+      $('.hide-more').hide();
+      $('.show-hide-more').hide();
+      $('.'+$(this).val()).show();
+    });
     
+    
+    $('.adSettingMenu').hide();
+    $('.smallMenuSetingOneAd').click(function () {
+      $('.adSettingMenu',this).toggle();
+    });
 
 });

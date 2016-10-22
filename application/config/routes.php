@@ -38,7 +38,7 @@
 |
 */
 
-$route['default_controller'] = "build";
+$route['default_controller'] = "egar";
 $route['404_override'] = '';
 
 
