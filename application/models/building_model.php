@@ -47,18 +47,19 @@ function __construct()
    public function search_request1($city,$category,$limit, $start)  {
     $this->db->limit($limit, $start);
 
-
 // $where = "(city='$city' AND category='$category' AND delete_post=0)";
 // $this->db->where($where);
 
-$array = array('city' => $city, 'category' => $category, 'delete_post' => 0);
+ // $array = array('city' => $city, 'category' => $category, 'delete_post' => 0);
+// var_dump($city);
+// var_dump($array);exit();
 
-$this->db->where($array); 
-    // $this->db->where('city',$city);
-    // $this->db->where('category',$category);
-    // $this->db->where('delete_post',0);
+// /$this->db->where($array); 
+    $this->db->where('city',$city);
+    $this->db->where('category',$category);
+    $this->db->where('delete_post',0);
     $query=$this->db->get('offer');
-    // print_r($query);exit();
+    // print-_r($query);exit();
     $data= array();
         if ($query->num_rows() > 0) {
                 foreach ($query->result() as $row) {
@@ -146,6 +147,11 @@ public function delete_request($id,$param){
     $this->db->where('id',$id );
     $this->db->update('request', $param);
 }
+public function get_id($email){
+     $query = $this->db->query("SELECT id FROM user where email='$email'");
+   return $query->result();
+}
+
 }
 
 ?>

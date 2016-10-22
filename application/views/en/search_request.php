@@ -48,7 +48,7 @@
    <select class="form-control" name="city" >
 			            <?php
                             foreach ($city as $value) { 
-                            echo '<option value="'.$value->id.'"';
+                            echo '<option value="'.$value->name.'"';
                             if($this->session->userdata('search_request1')){ if($this->session->userdata['search_request1']['city']=="$value->id")  
                             	{echo 'selected="selected"';}}
 
@@ -60,7 +60,8 @@
 									<div class="form-group col-sm-2">
 										<label class="control-label">Rent type</label>
 										<select class="form-control" id="RentTypeSelect">
-											<option value="Any" selected="">Any</option>
+											<option value="" selected=""></option>
+											<option value="Any">Any</option>
 											<option value="LongTerm">Long Term</option>
 											<option value="ShortTerm">Short Term</option>
 											<option value="RentbyDay">Rent by Day</option>
@@ -139,7 +140,8 @@
 											<div class="form-group col-sm-3 Flatshares RoomFlats Flats Houses">
 												<label class="control-label">Searched</label>
 												<select class="form-control" name="gender">
-													<option value="Any" selected="">Any</option>
+											       <option value="" selected=""></option>
+													<option value="Either">Either</option>
 													<option value="Male/s">Male/s</option>
 													<option value="Female/s">Female/s</option>
 												</select>
@@ -147,7 +149,8 @@
 											<div class="form-group col-sm-3 Flatshares RoomFlats Flats Houses">
 												<label class="control-label">Smoker</label>
 												<select class="form-control" name="smoke">
-													<option value="Any" selected="">Any</option>
+													<option value="" selected=""></option>
+													<option value="Any">Any</option>
 													<option value="Yes">Yes</option>
 													<option value="No">No</option>
 												</select>
@@ -164,7 +167,8 @@
 												<label class="control-label">Rooms</label>
 												<div class=" form-inline">
 													<select class="form-control" name="room_from">
-														<option value="any" selected="">Any</option>
+														<option value="" selected=""></option>
+														<option value="any" >Any</option>
 														<option value="2" >2</option>
 														<option value="3" >3</option>
 														<option value="4" >4</option>
@@ -351,40 +355,12 @@
 	
 	
 	
-	
-	
-	
-	
-	
-	
-		 <?php $this->load->view('en/login_register')?>
 
-	
-	
-	
-	
-    <!-- start - shm -->
-    <section id="shm">
-        <div class="scroll-up">
-            <i class="fa fa-arrow-up fa-3x"></i>
-        </div>
-    </section>
-    <!-- End - shm -->
-    
-    
-    
-    <script src="<?php echo $this->config->base_url();?>_/js/jquery.min.js"></script>
-    <script src="<?php echo $this->config->base_url();?>_/js/jquery-2.1.3.min.js"></script>
-    <script src="<?php echo $this->config->base_url();?>_/js/bootstrap.min.js"></script>
-    <script src="<?php echo $this->config->base_url();?>_/js/jquery.nicescroll.min.js"></script>
-    <script src="<?php echo $this->config->base_url();?>_/js/owl.carousel.js"></script><!-- Include js plugin -->
-    <script src="<?php echo $this->config->base_url();?>_/js/plugins.js"></script>
-    <script src="<?php echo $this->config->base_url();?>_/js/wow.min.js"></script>
-    <script>new WOW().init();</script>
-	<script src="<?php echo $this->config->base_url();?>_/dist/js/datepicker.min.js"></script>
-    <script src="<?php echo $this->config->base_url();?>_/dist/js/i18n/datepicker.en.js"></script>
-</body>
-</html>
+<?php $this->load->view('en/footer-small')?>
+
+
+
+
 <script type="text/javascript">
 function SubmitFormsearch(FormID, Controller, FunctionName) {
             // alert("sd");
@@ -408,92 +384,4 @@ function SubmitFormsearch(FormID, Controller, FunctionName) {
                     });
                 
             }
-// function SubmitForm(FormID, Controller, FunctionName) {
-//             // alert("sd");
-//                $("#"+FormID).unbind('submit').submit(function (event) {
-                   
-//                    var formData = $( this ).serialize();
-//                    $.ajax({
-//                             type: 'POST', 
-//                             url: "<?php echo $this->config->base_url(); ?>" + Controller + "/"+ FunctionName,
-//                             data: formData
-//                         })
-//                         .done(function (data) {
-//                             // $("#result").html(data);
-//                             if(data=="error"){
-//                         $('<div class="success-order">invalid email or password </div>').insertBefore('#submitbtn').delay(10000).fadeOut();
-//                        // $("#result").html("invalid email or password ");
-//                        // alert(data);
-//                        } else
-//                        {
-//                        	$('<div class="success-order">success </div>').insertBefore('#submitbtn').delay(10000).fadeOut();
-//                         $("#login_modal").modal('toggle');
-//                         location.reload();
-//                        }  
-//                    });
-
-//                         event.preventDefault();
-                        
-//                         $("#"+FormID)[0].reset();
-//                         // $("#x").modal('toggle');
-//                     });
-                
-//             }
-//     function SubmitFormregister(FormID, Controller, FunctionName) {
-//     	//if($("#password").val()== $("#repassword").val()){
-//                $("#"+FormID).unbind('submit').submit(function (event) {
-                   
-//                    var formData = $( this ).serialize();
-//                    $.ajax({
-//                             type: 'POST', 
-//                             url: "<?php echo $this->config->base_url(); ?>" + Controller + "/"+ FunctionName,
-//                             data: formData
-//                         })
-//                         .done(function (data) {
-//                             // $("#result").html(data);
-//                        if(data!="you are successfully registered"){
-//                        $("#result").html(data);
-//                        // alert(data);
-//                        } else
-//                        {
-//                        	   $("#"+FormID)[0].reset();
-//                            $("#registermodal").modal('toggle');  
-//                            $("#result").val()="";
-
-//                      }  
-//                    });
-//                         event.preventDefault();
-//                         // $("#x").modal('toggle');
-//                     });
-                
-//             }
-// $(document).ready(function() {
-
-//     var pageLoaded = 1; //this basically says that we are on page 1 of the results
-
-//       $(window).scroll(function()
-//        {
-
-//         if($(window).scrollTop() == $(document).height() - $(window).height())
-//         {
-//          pageLoaded = pageLoaded+1; //when this condition has met, increase the pageLoaded so that I can tell php to load in data for page 2/3/4/5, etc, etc
-
-// // below I send the data to the controller named Home its function loadData gets a variable named id_load with value = to pageLoaded
-
-//          $.post('egar/search_request1', {'id_load':pageLoaded}, 
-//             function(data)
-//             {
-//                 if (data != "")
-//                 {
-//                  $('#submissions').append(data);
-//                 }
-//              }
-//          );
-//          //alert(pageLoaded);
-//         }
-//        }
-//       );
-
-
-//     });   
 </script>

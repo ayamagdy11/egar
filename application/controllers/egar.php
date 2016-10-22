@@ -39,6 +39,12 @@ class egar extends CI_Controller {
   // public function search(){
   //   $this->load->view('en/search');
   // }
+
+  public function createad(){
+    $this->load->view('en/create-ad');
+  }
+
+
   public function login(){
         //Retrieve session data 
         $session_set_value = $this->session->all_userdata();
@@ -111,7 +117,10 @@ class egar extends CI_Controller {
                 }
            else {
                        $this->Building_model->register($param);
+                       $result =$this->Building_model->get_id($email);
+
                        $sess_data = array(
+                        'id'=>$result[0]->id,
                         'email' => $email,
                         'password' => $password,
                         'first_name' => $first_name,
@@ -274,7 +283,8 @@ public function search()
 
 
 public function request(){
-  $this->load->view('en/CreateRequest');
+  $param['result']=$this->Building_model->city_search();
+  $this->load->view('en/CreateRequest',$param);
 
 }
 public function request2(){
@@ -284,7 +294,6 @@ public function request2(){
 
     $id=$this->session->userdata['logged_in']['id'] ;
     $param['user_data'] =$this->Building_model->user_data($id);
-
 
 
    $this->load->view('en/CreateRequest-2',$param);
@@ -404,6 +413,8 @@ if($age_from !="") {
                     );
 
        $this->session->set_userdata('search_request1', $search_request1);
+             $data['city']=$this->Building_model->city_search();
+
       $this->load->view('en/search_request',$data);
 
 }
@@ -1264,7 +1275,9 @@ if($this->input->post('Bengali') == "")
 
 
    public function offer(){
-      $this->load->view('en/create_offer1');
+          $param['result']=$this->Building_model->city_search();
+
+      $this->load->view('en/create_offer1',$param);
 
    }
 
