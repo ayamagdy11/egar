@@ -25,7 +25,9 @@
         <![endif]-->
     </head>
 <body>
-			     <?php $this->load->view('en/nav2')?>
+	
+	<?php $this->load->view('en/nav2')?>
+	
 	<section class="search-page">
 		<div class="field">
 			<div class="container">
@@ -36,7 +38,7 @@
 								<div class="well">
 									<div class="form-group col-sm-3">
 										<label class="control-label">Category</label>
-										<select class="form-control" id="Category" name="category" required>
+										<select class="form-control" id="CategorySelect" name="category" required>
 											<option value="Flatshares" <?php if($this->session->userdata('search_request1')){ if($this->session->userdata['search_request1']['category']=="Flatshares")  {echo 'selected="selected"';}}?> >Flatshares</option>
 											<option value="RoomFlats"  <?php if($this->session->userdata('search_request1')){ if($this->session->userdata['search_request1']['category']=="RoomFlats")   {echo 'selected="selected"';}}?>>1 Room Flats</option>
 											<option value="Flats"      <?php if($this->session->userdata('search_request1')){ if($this->session->userdata['search_request1']['category']=="Flats")  {echo 'selected="selected"';}}?>>Flats</option>
@@ -45,18 +47,17 @@
 									</div>
 									<div class="form-group col-sm-3">
 										<label class="control-label">City</label>
-   <select class="form-control" name="city" >
-			            <?php
-                            foreach ($city as $value) { 
-                            echo '<option value="'.$value->name.'"';
-                            if($this->session->userdata('search_request1')){ if($this->session->userdata['search_request1']['city']=="$value->id")  
-                            	{echo 'selected="selected"';}}
-
-                            echo ">".$value->name.'</option>';                 
-
-}
-                        ?>
-							</select>									</div>
+				   						<select class="form-control" name="city" >
+							            <?php
+				                            foreach ($city as $value) { 
+				                            echo '<option value="'.$value->name.'"';
+				                            if($this->session->userdata('search_request1')){ if($this->session->userdata['search_request1']['city']=="$value->id")  
+				                            	{echo 'selected="selected"';}}
+				                            echo ">".$value->name.'</option>';
+											}
+				                        ?>
+										</select>
+									</div>
 									<div class="form-group col-sm-2">
 										<label class="control-label">Rent type</label>
 										<select class="form-control" id="RentTypeSelect">
@@ -133,6 +134,23 @@
 													</select>
 												</div>
 											</div> -->
+											<div class="clearfix"></div>
+											<div class="col-sm-12">
+												<hr>
+											</div>
+											<div class="clearfix"></div>
+											<div class="col-xs-12 hide-more-search-offers Flatshares">
+												<h4 class="title">Flatshare Details</h4>
+											</div>
+											<div class="col-sm-3 hide-more-search-offers Flatshares">
+											<label class="control-label">Flatmate</label>
+												<select class="form-control">
+											       <option value="" selected=""></option>
+													<option value="Either">Either</option>
+													<option value="Male/s">Male/s</option>
+													<option value="Female/s">Female/s</option>
+												</select>
+											</div>
 											<div class="clearfix"></div>
 											<div class="col-sm-12">
 												<hr>
@@ -236,7 +254,6 @@
 				<div class="row">
 				
 					<!-- table -->
-
 					<div class="clearfix"></div>
 					<div class="col-sm-12">
 						<div class="table-responsive" id="search_result">
@@ -250,87 +267,17 @@
 									<td class="info">From</td>
 									<td class="info">Until</td>
 								</tr>
-								<?php 
-								foreach ($result as $value) {
-								
-								?>
-								<tr>
-									<td <?php if($value->deactive==0){echo 'class="active"'; }else{echo 'class="disable"';} ?>   title="Male">
-										<a href="<?php echo $this->config->base_url();?>egar/offer_details/<?php echo $value->id;?>">
-											<div class="padd-8">
-												<?php 
-												       if($value->user_gender==0){
-												  ?>
-												
-												<img class="img-about img-responsive center-block" src="<?php echo $this->config->base_url();?>_/images/male.png" alt="">
-												<?php }else{ ?>
-												<img class="img-about img-responsive center-block" src="<?php echo $this->config->base_url();?>_/images/female.png" alt="">
-												<?php }?>
-											</div>
-										</a>
-									</td>
-									<td <?php if($value->deactive==0){echo "class='active'";} else{echo "class='disable'";} ?>>
-										<a href="<?php echo $this->config->base_url();?>egar/offer_details/<?php echo $value->id;?>">
-											<div class="padd-8">
-												<?php echo $value->post_date; ?>
-											</div>
-										</a>
-									</td>
-									<td <?php if($value->deactive==0){echo 'class="active"';} else{echo 'class="disable"';} ?>>
-										<a href="<?php echo $this->config->base_url();?>egar/offer_details/<?php echo $value->id;?>">
-											<div class="padd-8">
-												<?php echo $value->rent_per_month;?>
-											</div>
-										</a>
-									</td>
-									<td <?php if($value->deactive==0){echo 'class="active"';} else{echo 'class="disable"';} ?>>
-										<a href="<?php echo $this->config->base_url();?>egar/offer_details/<?php echo $value->id;?>">
-											<div class="padd-8">
-												<?php echo $value->total_flat_size; ?><span>m²</span>
-											</div>
-										</a>
-									</td>
-									<td <?php if($value->deactive==0){echo 'class="active"'; }else{echo 'class="disable"';} ?>>
-										<a href="<?php echo $this->config->base_url();?>egar/offer_details/<?php echo $value->id;?>">
-											<div class="padd-8">
-											<?php echo $value->number_of_rooms;?>
-											</div>
-										</a>
-									</td>
-									<td <?php if($value->deactive==0){echo 'class="active"';} else{echo 'class="disable"';} ?>>
-										<a href="<?php echo $this->config->base_url();?>egar/offer_details/<?php echo $value->id;?>">
-											<div class="padd-8">
-												<?php echo $value->available_from_d."-".$value->available_from_m."-".$value->available_from_y?>
-											</div>
-										</a>
-									</td>
-									<td <?php if($value->deactive==0){echo 'class="active"';} else{echo 'class="disable"';}?>>
-										<a href="<?php echo $this->config->base_url();?>egar/offer_details/<?php echo $value->id;?>">
-											<div class="padd-8">
-												<?php echo $value->available_to_d."-".$value->available_to_m."-".$value->available_to_y?>
-											</div>
-										</a>
-									</td>
+								<tr class="another-tr">
+									<td class="active" title="Male or Female">M/F</td>
+									<td class="active">Posted</td>
+									<td class="active">Max rent</td>
+									<td class="active">Min Room Size.m²</td>
+									<td class="active">Desired district</td>
+									<td class="active">From</td>
+									<td class="active">Until</td>
 								</tr>
-
-							<?php }?>
-							</table>
-							<nav aria-label="Page navigation">
-							  <ul class="pagination">
 								
-								<?php
-								if($links){
-									print_r($links);
-									}
-
-								// echo "<li>";
-								// echo $links;
-								// echo "</li>";
- ?>
-
-							<li><?php //echo "<li>".$links."</li>"; ?></li>
-							  </ul>
-							</nav>
+							</table>
 						</div>
 					</div>
 				</div>

@@ -46,6 +46,13 @@ $(document).ready(function(){
     });
     
     
+    //search-offers page
+    $('.hide-more-search-offers').hide();
+    $('#CategorySelect').change(function () {
+      $('.hide-more-search-offers').hide();
+      $('.'+$(this).val()).show();
+    });
+
     $('.adSettingMenu').hide();
     $('.smallMenuSetingOneAd').click(function () {
       $('.adSettingMenu',this).toggle();

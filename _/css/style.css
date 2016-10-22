@@ -937,6 +937,9 @@ hr {border-top: 1px solid #CCCCCD;}
   padding: 7px 0px;
   display: block;
 }
+.search-results {
+  min-height: 500px;
+}
 .search-results .table > tbody > tr > td {
   padding: 0px;
 }
@@ -979,6 +982,9 @@ hr {border-top: 1px solid #CCCCCD;}
   background: #eee;
   overflow: hidden;
   padding: 15px;
+}
+.search-results .table > tbody > tr.another-tr td {
+  padding: 5px;
 }
 /** end search-page **/
 

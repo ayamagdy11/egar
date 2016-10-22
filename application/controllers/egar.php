@@ -44,6 +44,10 @@ class egar extends CI_Controller {
     $this->load->view('en/create-ad');
   }
 
+    public function searchoffer(){
+    $this->load->view('en/search_offer');
+  }
+
 
   public function login(){
         //Retrieve session data 

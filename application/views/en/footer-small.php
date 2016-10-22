@@ -90,5 +90,7 @@
     <script src="<?php echo $this->config->base_url();?>_/js/plugins.js"></script>
     <script src="<?php echo $this->config->base_url();?>_/js/wow.min.js"></script>
     <script>new WOW().init();</script>
+	<script src="<?php echo $this->config->base_url();?>_/dist/js/datepicker.min.js"></script>
+    <script src="<?php echo $this->config->base_url();?>_/dist/js/i18n/datepicker.en.js"></script>
 </body>
 </html>
