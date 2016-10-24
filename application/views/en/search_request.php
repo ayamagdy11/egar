@@ -45,22 +45,24 @@
 									</div>
 									<div class="form-group col-sm-3">
 										<label class="control-label">City</label>
-   <select class="form-control" name="city" >
-			            <?php
-                            foreach ($city as $value) { 
-                            echo '<option value="'.$value->name.'"';
-                            if($this->session->userdata('search_request1')){ if($this->session->userdata['search_request1']['city']=="$value->id")  
-                            	{echo 'selected="selected"';}}
-
-                            echo ">".$value->name.'</option>';                 
-
-}
-                        ?>
-							</select>									</div>
+										<select class="form-control" name="city" >
+											<?php
+											foreach ($city as $value) { 
+												echo '<option value="'.$value->name.'"';
+												if($this->session->userdata('search_request1')){ 
+													if($this->session->userdata['search_request1']['city']=="$value->id") {
+														echo 'selected="selected"';
+													}
+												}
+												echo ">".$value->name.'</option>';
+											}
+											?>
+										</select>
+									</div>
 									<div class="form-group col-sm-2">
 										<label class="control-label">Rent type</label>
 										<select class="form-control" id="RentTypeSelect">
-											<option value="" selected=""></option>
+											<option value="" selected="">Chose</option>
 											<option value="Any">Any</option>
 											<option value="LongTerm">Long Term</option>
 											<option value="ShortTerm">Short Term</option>
@@ -140,7 +142,7 @@
 											<div class="form-group col-sm-3 Flatshares RoomFlats Flats Houses">
 												<label class="control-label">Searched</label>
 												<select class="form-control" name="gender">
-											       <option value="" selected=""></option>
+											       <option value="" selected="">Chose</option>
 													<option value="Either">Either</option>
 													<option value="Male/s">Male/s</option>
 													<option value="Female/s">Female/s</option>
@@ -149,7 +151,7 @@
 											<div class="form-group col-sm-3 Flatshares RoomFlats Flats Houses">
 												<label class="control-label">Smoker</label>
 												<select class="form-control" name="smoke">
-													<option value="" selected=""></option>
+													<option value="" selected="">Chose</option>
 													<option value="Any">Any</option>
 													<option value="Yes">Yes</option>
 													<option value="No">No</option>
@@ -167,7 +169,7 @@
 												<label class="control-label">Rooms</label>
 												<div class=" form-inline">
 													<select class="form-control" name="room_from">
-														<option value="" selected=""></option>
+														<option value="" selected="">Chose</option>
 														<option value="any" >Any</option>
 														<option value="2" >2</option>
 														<option value="3" >3</option>
@@ -236,6 +238,14 @@
 				<div class="row">
 				
 					<!-- table -->
+
+
+
+
+
+
+
+
 
 					<div class="clearfix"></div>
 					<div class="col-sm-12">

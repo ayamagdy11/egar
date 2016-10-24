@@ -84,6 +84,7 @@
   src: url("../fonts/montserrat/Montserrat-Regular.otf");
 }
 body {
+  position:relative;
   background-color: #fff;
   font-family: "Roboto-Regular";
   color: #212121;
@@ -912,10 +913,30 @@ hr {border-top: 1px solid #CCCCCD;}
 .well {
   overflow: hidden;
   margin-bottom: 0px;
+  border: 0px;
+  border-radius: 0px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.0);
+  box-shadow: inset 0 0px 0px rgba(0,0,0,.0);
+  border: 1px dashed #1976d2;
+  background: #f8f8f8;
+  margin-top: 15px;
 }
 .search-page .see-more .form-group {
   position: relative;
   margin: 0px;
+}
+.search-page .logo {
+  margin-top: 60px;
+  margin-bottom: 40px;
+}
+.search-page .titleSearch {
+  font-size: 26px;
+  color: #689f38;
+  text-align: left;
+  margin-top: 30px;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #c8c8c8;
 }
 .search-page .see-more .form-group input.datepicker-here {
   padding-left: 40px;
@@ -928,6 +949,7 @@ hr {border-top: 1px solid #CCCCCD;}
   width: 40px;
   text-align: center;
   color: #73879c;
+  z-index: 1;
 }
 .filters-search {
   padding: 15px 0px;
@@ -953,7 +975,7 @@ hr {border-top: 1px solid #CCCCCD;}
   height: 20px;
 }
 .table > tbody > tr > td.disable {
-  background: #888;
+  background: #ddd;
 }
 .search-results .table > tbody > tr > td.disable a {
   color: #111;
@@ -985,6 +1007,49 @@ hr {border-top: 1px solid #CCCCCD;}
 }
 .search-results .table > tbody > tr.another-tr td {
   padding: 5px;
+}
+.search-page .moreObtions {
+  margin-top: 15px;
+  display: block;
+  overflow: hidden;
+}
+.search-page .moreObtions input {
+  margin-top: 15px;
+}
+.table > tbody > tr.info > td, 
+.table > tbody > tr.info > th, 
+.table > tbody > tr > td.info, 
+.table > tbody > tr > th.info, 
+.table > tfoot > tr.info > td, 
+.table > tfoot > tr.info > th, 
+.table > tfoot > tr > td.info, 
+.table > tfoot > tr > th.info, 
+.table > thead > tr.info > td, 
+.table > thead > tr.info > th, 
+.table > thead > tr > td.info, 
+.table > thead > tr > th.info,
+.table-hover > tbody > tr.info:hover > td, 
+.table-hover > tbody > tr.info:hover > th, 
+.table-hover > tbody > tr:hover > .info, 
+.table-hover > tbody > tr > td.info:hover, 
+.table-hover > tbody > tr > th.info:hover {
+  background-color: #1976d2;
+  color: #fff;
+}
+.table > tbody > tr.active > td, 
+.table > tbody > tr.active > th, 
+.table > tbody > tr > td.active, 
+.table > tbody > tr > th.active, 
+.table > tfoot > tr.active > td, 
+.table > tfoot > tr.active > th, 
+.table > tfoot > tr > td.active, 
+.table > tfoot > tr > th.active, 
+.table > thead > tr.active > td, 
+.table > thead > tr.active > th, 
+.table > thead > tr > td.active, 
+.table > thead > tr > th.active {
+  background-color: #f2f2f2;
+  color: #6c6c6c;
 }
 /** end search-page **/
 

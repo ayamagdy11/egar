@@ -44,10 +44,6 @@ class egar extends CI_Controller {
     $this->load->view('en/create-ad');
   }
 
-    public function searchoffer(){
-    $this->load->view('en/search_offer');
-  }
-
 
   public function login(){
         //Retrieve session data 
@@ -161,10 +157,42 @@ class egar extends CI_Controller {
       }
       else
       {
-$data['result']=$this->Building_model->city_search();
+     $data['result']=$this->Building_model->city_search();
+     $this->load->view('en/index',$data);      }
 
-                $this->load->view('en/index',$data);      }
+    }
+    public function feedback(){
+           $this->load->view('en/feedback');      
+    }
+      public function help(){
+           $this->load->view('en/help');      
+    }
+      public function sitemap(){
+           $this->load->view('en/sitemap');      
+    }
+      public function terms_of_use(){
+           $this->load->view('en/terms_of_use');      
+    }
+      public function privacy_policy(){
+           $this->load->view('en/privacy_policy');      
+    }
+        public function edit_profile(){
+           $this->load->view('en/edit_profile');      
+    }
 
+    public function profileV(){
+          if($id=$this->session->userdata('logged_in'))
+      {
+        $id=$this->session->userdata['logged_in']['id'] ;
+        $data['result']=$this->Building_model->user_data($id);
+        $data['offer']=$this->Building_model->user_offer($id);
+        $data['request']=$this->Building_model->user_request($id);
+        $this->load->view('en/profile_v',$data);
+      }
+      else
+      {
+     $data['result']=$this->Building_model->city_search();
+     $this->load->view('en/index',$data);      }
     }
     public function forget_pass(){
      $this->load->view('en/forget_pass');
@@ -287,20 +315,24 @@ public function search()
 
 
 public function request(){
+  if($this->session->userdata('logged_in'))
   $param['result']=$this->Building_model->city_search();
   $this->load->view('en/CreateRequest',$param);
 
 }
 public function request2(){
-    $param['building_type'] = $this->input->post('building_type');
-    $param['city'] = $this->input->post('city');
+    $param['building_type'] = $category=$this->input->post('building_type');
+    $param['city'] =$city= $this->input->post('city');
     $param['period'] = $this->input->post('period');
-
     $id=$this->session->userdata['logged_in']['id'] ;
     $param['user_data'] =$this->Building_model->user_data($id);
+    $search_request1 = array(
+                        'city' => $city,
+                        'category' => $category
+                    );
 
-
-   $this->load->view('en/CreateRequest-2',$param);
+     $this->session->set_userdata('search_request11', $search_request1);
+     $this->load->view('en/CreateRequest-2',$param);
 
 }
 
@@ -309,9 +341,8 @@ public function search_request2(){
 
 $query = "SELECT * FROM offer";
 $query_count = "SELECT count(*)as count FROM offer";
-
 $conditions = array();
-
+$city_categ = array();
 $category=$this->input->post('category');
 $city=$this->input->post('city');
 $rent_type=$this->input->post('rent_type');
@@ -327,13 +358,23 @@ $room_from=$this->input->post('room_from');
 // $room_to=$this->input->post('room_to');
 
 if($category !="" || $city !="") {
-      $conditions[] = "(category='$category' and city='$city')";
+      $conditions[] = $city_categ[]="(category='$category' and city='$city')";
+      
+    }
+    else {
+      //code...
+     $city_categ[]="(category=null and city=null)";
+
     }
 // if($city !="") {
 //       $conditions[] = "city='$city'";
 //     }
 if($rent_type !="") {
+  if($rent_type=="Any"){
+    //$conditions[] = "rent_type='$rent_type'";
+  }else{
       $conditions[] = "rent_type='$rent_type'";
+    }
     }
 if($total_flat_size !="") {
       $conditions[] = "total_flat_size >= '$total_flat_size'";
@@ -349,8 +390,8 @@ $year = $date[0];
 $month   = $date[1];
 $day  = $date[2];
 
- $conditions[] = "(available_from_d='$day'and available_from_m='$month' and available_from_y='$year')";
-    }
+ $conditions[] = "(available_from_d >='$day'and available_from_m >='$month' and available_from_y >='$year')";
+    } 
 if($l_move_in !="") {
       
 $date = explode('-', $l_move_in);
@@ -358,7 +399,7 @@ $year = $date[0];
 $month   = $date[1];
 $day  = $date[2];
 
- $conditions[] = "(available_to_d='$day'and available_to_m='$month' and available_to_y='$year')";
+ $conditions[] = "(available_to_d <='$day'and available_to_m <='$month' and available_to_y <='$year')";
     }
 if($gender !="") {
       $conditions[] = "searching_for='$gender'";
@@ -366,19 +407,22 @@ if($gender !="") {
 if($smoke !="") {
        if($smoke=="No")
          {
-           $conditions[] = "smoking =='No smoking'";
+           $conditions[] = -"smoking ='No smoking'";
          }
-       else
+       elseif($smoke=="Yes")
          {
            $conditions[] = "smoking !='No smoking'";
          }
+         else{
+
+         }
     }
 if($age_from !="") {
-      $conditions[] = "age_from='$age_from'";
+      $conditions[] = "aged_from >='$age_from'";
     }
 
  if($age_to !="") {
-      $conditions[] = "age_to='$age_to'";
+      $conditions[] = "aged_to <='$age_to'";
     }
  if($room_from !="")
     {
@@ -407,9 +451,15 @@ if($age_from !="") {
       $sql.=" and (delete_post=0)";
       //$sql .= 'LIMIT '.$config["per_page"] .','.$page;
       //$sql .= "LIMIT ". $config["per_page"] ." OFFSET ". $page ;
+     $data['result']=$this->Building_model->search_request2($sql);
 
     }
-     $data['result']=$this->Building_model->search_request2($sql);
+    else{
+      $sql .= " WHERE " . implode(' and ', $city_categ);
+      $sql.=" and (delete_post=0)";
+      $data['result']=$this->Building_model->search_request2($sql);
+
+    }
    // print_r($result);
    $search_request1 = array(
                         'city' => $city,

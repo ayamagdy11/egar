@@ -128,8 +128,8 @@
 									$deacColor = " ";
 								}
 							?>
-							<div class="col-sm-6">
-								<div class="oneAdOnProfile <?php echo $deacColor; ?>">
+							<div class="col-sm-12">
+								<div class="oneAdOnProfile oneAdOnProfile-v <?php echo $deacColor; ?>">
 									<div class="adTitleDiv">
 										<div class="smallMenuSetingOneAd">
 											<i class="fa fa-cog" aria-hidden="true"></i>
@@ -188,8 +188,8 @@
 											$deacColor = " ";
 										}
 							?>
-							<div class="col-sm-6">
-								<div class="oneAdOnProfile <?php echo $deacColor; ?>">
+							<div class="col-sm-12">
+								<div class="oneAdOnProfile oneAdOnProfile-v <?php echo $deacColor; ?>">
 									<div class="adTitleDiv">
 										<div class="smallMenuSetingOneAd">
 											<i class="fa fa-cog" aria-hidden="true"></i>
@@ -240,11 +240,25 @@
 				<!-- aya -->
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 				</div>
 			</div>
 		</div>
 	</section>
 	<!-- end userProfile -->
+	
 	
 	
 	

@@ -52,11 +52,11 @@
         <div class="row">
 			<div class="col-lg-6 col-md-7 col-sm-6 col-xs-12">
             <ul>
-				<li><a href="<?php echo $this->config->base_url();?>_/#" class="last">Terms of Use</a></li>
-				<li><a href="<?php echo $this->config->base_url();?>_/#">Privacy Policy</a></li>
-				<li><a href="<?php echo $this->config->base_url();?>_/#">Help</a></li>
-				<li><a href="<?php echo $this->config->base_url();?>_/#">Sitemap</a></li>
-				<li><a href="<?php echo $this->config->base_url();?>_/#">Feedback</a></li>
+				<li><a href="<?php echo $this->config->base_url();?>egar/terms_of_use" class="last">Terms of Use</a></li>
+				<li><a href="<?php echo $this->config->base_url();?>egar/privacy_policy">Privacy Policy</a></li>
+				<li><a href="<?php echo $this->config->base_url();?>egar/help">Help</a></li>
+				<li><a href="<?php echo $this->config->base_url();?>egar/sitemap">Sitemap</a></li>
+				<li><a href="<?php echo $this->config->base_url();?>egar/feedback">Feedback</a></li>
 			</ul>
           </div>
           <div class="col-lg-6 col-md-5 col-sm-6 col-xs-12">

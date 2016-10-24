@@ -27,13 +27,18 @@
 <body>
 	
 	<?php $this->load->view('en/nav2')?>
-	
-	<section class="search-page">
+
+	<div class="searchPageFixedBg"></div>
+
+	<section class="search-page-all">
 		<div class="field">
 			<div class="container">
 				<div class="row">
 					<div class="search-page">
-				   <form action="<?php echo $this->config->base_url();?>egar/search_request2" method="post" enctype="multipart/form-data" id="search_request">
+						<div class="col-sm-12 text-center">
+							<img src="http://localhost/esam/egar/develop/_/images/logo2.png" class="img-responsive center-block logo" alt="egar logo">
+						</div>
+				   		<form action="<?php echo $this->config->base_url();?>egar/search_request2" method="post" enctype="multipart/form-data" id="search_request">
 							<div class="col-sm-12">
 								<div class="well">
 									<div class="form-group col-sm-3">
@@ -61,7 +66,7 @@
 									<div class="form-group col-sm-2">
 										<label class="control-label">Rent type</label>
 										<select class="form-control" id="RentTypeSelect">
-											<option value="" selected=""></option>
+											<option value="" selected="">Chose</option>
 											<option value="Any">Any</option>
 											<option value="LongTerm">Long Term</option>
 											<option value="ShortTerm">Short Term</option>
@@ -138,79 +143,150 @@
 											<div class="col-sm-12">
 												<hr>
 											</div>
-											<div class="clearfix"></div>
-											<div class="col-xs-12 hide-more-search-offers Flatshares">
-												<h4 class="title">Flatshare Details</h4>
-											</div>
-											<div class="col-sm-3 hide-more-search-offers Flatshares">
-											<label class="control-label">Flatmate</label>
-												<select class="form-control">
-											       <option value="" selected=""></option>
-													<option value="Either">Either</option>
-													<option value="Male/s">Male/s</option>
-													<option value="Female/s">Female/s</option>
-												</select>
-											</div>
-											<div class="clearfix"></div>
-											<div class="col-sm-12">
-												<hr>
-											</div>
-											<div class="form-group col-sm-3 Flatshares RoomFlats Flats Houses">
-												<label class="control-label">Searched</label>
-												<select class="form-control" name="gender">
-											       <option value="" selected=""></option>
-													<option value="Either">Either</option>
-													<option value="Male/s">Male/s</option>
-													<option value="Female/s">Female/s</option>
-												</select>
-											</div>
-											<div class="form-group col-sm-3 Flatshares RoomFlats Flats Houses">
-												<label class="control-label">Smoker</label>
-												<select class="form-control" name="smoke">
-													<option value="" selected=""></option>
-													<option value="Any">Any</option>
-													<option value="Yes">Yes</option>
-													<option value="No">No</option>
-												</select>
-											</div>
-											<div class="form-group col-sm-3 Flatshares RoomFlats Flats Houses">
-												<label class="control-label">Age</label>
-												<div class=" form-inline">
-													<input class="form-control" name="age_from" value="" maxlength="2" size="3" type="text">
-													to
-													<input class="form-control" name="age_to" value="" maxlength="2" size="3" type="text">
+											<div class="otherDetailsSearch">
+												<div class="col-xs-12">
+													<h4 class="title">Other Details</h4>
 												</div>
-											</div>
-											<div class="form-group col-sm-3 hide-more-category Flats Houses">
-												<label class="control-label">Rooms</label>
-												<div class=" form-inline">
-													<select class="form-control" name="room_from">
-														<option value="" selected=""></option>
-														<option value="any" >Any</option>
-														<option value="2" >2</option>
-														<option value="3" >3</option>
-														<option value="4" >4</option>
-														<option value="5" >5</option>
-														<option value="6" >6</option>
-														<option value="7" >7</option>
-														<option value="8" >8</option>
+												<div class="col-sm-3">
+												<label class="control-label">New offers since</label>
+													<select class="form-control">
+												       	<option value="" selected="">Chose</option>
+														<option value="0">Any</option>
+														<option value="1">Last&nbsp;3&nbsp;days</option>
+														<option value="2">Last&nbsp;week</option>
+														<option value="3">Last&nbsp;2&nbsp;weeks</option>
+														<option value="4">Last&nbsp;3&nbsp;weeks</option>
+														<option value="5">Last&nbsp;month</option>
+														<option value="6">Last&nbsp;2&nbsp;months</option>
+														<option value="7">Last&nbsp;3&nbsp;months</option>
 													</select>
-													<!-- to
-													<select class="form-control" name="room_to">
-														<option value="" selected="">Any</option>
-														<option>2</option>
-														<option>3</option>
-														<option>4</option>
-														<option>5</option>
-														<option>6</option>
-														<option>7</option>
-														<option>8</option>
-													</select> -->
 												</div>
+												<div class="col-sm-3">
+													<label class="control-label">Offer in exchange</label>
+													<select class="form-control">
+												       	<option value="" selected="">Chose</option>
+												       	<option value="Any">Any</option>
+														<option value="Yes">Yes</option>
+														<option value="No">No</option>
+													</select>
+												</div>
+												<div class="col-sm-3">
+													<label class="control-label">Pets allowed</label>
+													<select class="form-control">
+												       	<option value="" selected="">Chose</option>
+												       	<option value="Any">Any</option>
+														<option value="Yes">Yes</option>
+														<option value="No">No</option>
+													</select>
+												</div>
+												<div class="col-sm-3">
+													<label class="control-label">Furnished</label>
+													<select class="form-control">
+												       	<option value="" selected="">Chose</option>
+												       	<option value="Any">Any</option>
+														<option value="Yes">Yes</option>
+														<option value="No">No</option>
+													</select>
+												</div>
+												<div class="clearfix"></div>
+												<div class="moreObtions">
+													<div class="col-sm-12">
+														<div class="form-group">
+														    <input name="behindertengerecht" type="checkbox">  Handicapped accessible</label>
+														</div>
+														<div class="form-group">
+														    <input name="behindertengerecht" type="checkbox">  Has photos</label>
+														</div>
+														<div class="form-group">
+														    <input name="behindertengerecht" type="checkbox">  Garden</label>
+														</div>
+														<div class="form-group">
+														    <input name="behindertengerecht" type="checkbox">  Balcony</label>
+														</div>
+													</div>
+												</div>
+												<br>
+												<div class="form-group col-sm-3 hide-more-search-offers Houses">
+													<label class="control-label">Rooms</label>
+													<div class=" form-inline">
+														<select class="form-control">
+															<option value="" selected="">Chose</option>
+															<option value="any">Any</option>
+															<option value="2">2</option>
+															<option value="3">3</option>
+															<option value="4">4</option>
+															<option value="5">5</option>
+															<option value="6">6</option>
+															<option value="7">7</option>
+															<option value="8">8</option>
+														</select>
+														to
+														<select class="form-control">
+															<option value="" selected="">Chose</option>
+															<option value="any">Any</option>
+															<option value="2">2</option>
+															<option value="3">3</option>
+															<option value="4">4</option>
+															<option value="5">5</option>
+															<option value="6">6</option>
+															<option value="7">7</option>
+															<option value="8">8</option>
+														</select>
+												</div>
+											</div>
 											</div>
 											<div class="clearfix"></div>
 											<div class="col-sm-12">
 												<hr>
+											</div>
+											<div class="FlatshareDetailsSearch hide-more-search-offers Flatshares">
+												<div class="col-xs-12">
+													<h4 class="title">Flatshare Details</h4>
+												</div>
+												<div class="col-sm-3">
+												<label class="control-label">Flatmate</label>
+													<select class="form-control">
+												       	<option value="" selected="">Chose</option>
+												       	<option value="Any">Any</option>
+														<option value="Either">Female/s only</option>
+														<option value="Male/s">Male/s only</option>
+														<option value="Female/s">Mixed gender</option>
+													</select>
+												</div>
+												<div class="col-sm-3">
+												<label class="control-label">Smoking</label>
+													<select class="form-control">
+												       	<option value="" selected="">Chose</option>
+												       	<option value="Any">Any</option>
+														<option value="Either">Allowed</option>
+														<option value="Male/s">Not permitted</option>
+														<option value="Female/s">In own room</option>
+													</select>
+												</div>
+												<div class="col-sm-3">
+													<label class="control-label">Flatshare size</label>
+													<select class="form-control" name="flatshare_size">
+														<option value="" selected="">Chose</option>
+														<option value="any">Any</option>
+														<option value="2">2</option>
+														<option value="3">3</option>
+														<option value="4">4</option>
+														<option value="5">5</option>
+														<option value="6">6</option>
+														<option value="7">7</option>
+														<option value="8">8</option>
+														<option value="9">9</option>
+													</select>
+												</div>
+												<div class="col-sm-3">
+													<label class="control-label">Searched</label>
+													<select class="form-control" name="gender">
+											       	<option value="" selected="">Chose</option>
+													<option value="Either">Either</option>
+													<option value="Male/s">Male/s</option>
+													<option value="Female/s">Female/s</option>
+												</select>
+												</div>
 											</div>
 										<!-- 	<div class="col-sm-12 Flatshares RoomFlats Flats Houses">
 												<div class="form-group">
@@ -268,15 +344,107 @@
 									<td class="info">Until</td>
 								</tr>
 								<tr class="another-tr">
-									<td class="active" title="Male or Female">M/F</td>
-									<td class="active">Posted</td>
-									<td class="active">Max rent</td>
-									<td class="active">Min Room Size.m²</td>
-									<td class="active">Desired district</td>
-									<td class="active">From</td>
-									<td class="active">Until</td>
+									<td class="active" title="Male">
+										<a href="#">
+											<div class="padd-8">
+												<img class="img-about img-responsive center-block" src="<?php echo $this->config->base_url();?>_/images/male.png" alt="">
+											</div>
+										</a>
+									</td>
+									<td class="active">
+										<a href="#">
+											<div class="padd-8">
+												2016-10-19 00:00:00
+											</div>
+										</a>
+									</td>
+									<td class="active">
+										<a href="#">
+											<div class="padd-8">
+												1000
+											</div>
+										</a>
+									</td>
+									<td class="active">
+										<a href="#">
+											<div class="padd-8">
+												0<span>m²</span>
+											</div>
+										</a>
+									</td>
+									<td class="active">
+										<a href="#">
+											<div class="padd-8">
+											5
+											</div>
+										</a>
+									</td>
+									<td class="active">
+										<a href="#">
+											<div class="padd-8">
+												01-01-2016
+											</div>
+										</a>
+									</td>
+									<td class="active">
+										<a href="#">
+											<div class="padd-8">
+												01-01-2016
+											</div>
+										</a>
+									</td>
 								</tr>
-								
+								<tr class="another-tr">
+									<td class="disable" title="Male">
+										<a href="#">
+											<div class="padd-8">
+												<img class="img-about img-responsive center-block" src="<?php echo $this->config->base_url();?>_/images/female.png" alt="">
+											</div>
+										</a>
+									</td>
+									<td class="disable">
+										<a href="#">
+											<div class="padd-8">
+												2016-10-19 00:00:00
+											</div>
+										</a>
+									</td>
+									<td class="disable">
+										<a href="#">
+											<div class="padd-8">
+												1000
+											</div>
+										</a>
+									</td>
+									<td class="disable">
+										<a href="#">
+											<div class="padd-8">
+												0<span>m²</span>
+											</div>
+										</a>
+									</td>
+									<td class="disable">
+										<a href="#">
+											<div class="padd-8">
+											5
+											</div>
+										</a>
+									</td>
+									<td class="disable">
+										<a href="#">
+											<div class="padd-8">
+												01-01-2016
+											</div>
+										</a>
+									</td>
+									<td class="disable">
+										<a href="#">
+											<div class="padd-8">
+												01-01-2016
+											</div>
+										</a>
+									</td>
+								</tr>
 							</table>
 						</div>
 					</div>
